@@ -411,7 +411,7 @@ colors = [cm(x) for x in np.linspace(0.01, 0.99, 7)]
 names = ["H_0","q_0"]
 labels = ["H_0","q_0"]
 
-stan_samples = np.load('../{}/'.format(pathtoSTANresults)+'multirnd_STAN_samples.npy')[index]
+stan_samples = np.load('{}/'.format(pathtoSTANresults)+'multirnd_STAN_samples.npy')[index]
 
 samples_pydelfi = MCSamples(samples=[posterior_samples], names = names, labels = labels,\
                     label='pydelfi samples' +  ' [$H_0$,$q_0$] = [%s ' %round(np.mean(posterior_samples[:,0]),2) + 
