@@ -109,7 +109,7 @@ pathtoNNsims = '{}/NN/'.format(main_data_folder)
 pathtoNNmodels = '../NN_results/'
 pathtoLFIresults = '../LFI_results/'
 
-pathtorealsamples = '{}/real_samples'.format(main_data_folder) 
+pathtorealsamples = '../{}/real_samples'.format(main_data_folder) 
 pathtoSTANresults = 'STAN_results/multi_rnd_%s'%n_obs+'D'
 if selection == True:
     pathtoSTANresults += '_selection'
