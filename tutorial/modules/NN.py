@@ -184,7 +184,7 @@ def fit_model(train_X, train_Y,i,N_epochs,batchsize,learning_step):
     callbacks_list = [tf.keras.callbacks.EarlyStopping(patience=50,verbose=1,restore_best_weights=True)]
     #fit model     
     history = model.fit(train_X, train_Y, epochs=N_epochs, validation_data=(val_X, val_Y),\
-                        batch_size=batchsize,callbacks=callbacks_list)    
+                        batch_size=batchsize,callbacks=callbacks_list, verbose=False)    
     model.save('{}'.format(NN_arch)+'/model{}_NN.json'.format(i))
     
     loss = np.zeros((len(history.history['loss']),2))
@@ -196,27 +196,7 @@ def fit_model(train_X, train_Y,i,N_epochs,batchsize,learning_step):
     np.save('{}'.format(NN_arch)+'/model{}_loss.npy'.format(i),loss)
     np.save('{}'.format(NN_arch)+'/model{}_err.npy'.format(i),err)
     
-    fig= plt.figure(figsize=(14,12))
-    plt.plot(history.history['loss'][5:])
-    plt.plot(history.history['val_loss'][5:])
-    plt.title('model loss',fontsize=26)
-    plt.ylabel('loss',fontsize=22)
-    plt.xlabel('epoch',fontsize=22)
-    plt.legend(['train','validation'], loc='upper left')
-    #plt.show()
-    fig.savefig('{}'.format(NN_arch)+'/model{}_loss_fig.png'.format(i))
-    plt.close()
-    
-    fig= plt.figure(figsize=(14,12))
-    plt.plot(history.history[loss_expl][5:])
-    plt.plot(history.history['val_'+loss_expl][5:])
-    plt.title('model loss',fontsize=26)
-    plt.ylabel(loss_funct,fontsize=22)
-    plt.xlabel('epoch',fontsize=22)
-    plt.legend(['train','validation'], loc='upper left')
-    plt.plot(fontsize=24)
-    #plt.show()
-    fig.savefig('{}'.format(NN_arch)+'/model{}_err_fig.png'.format(i))
+    print('Model %s has been stored'%(i+1))
     
     return model
 
@@ -247,3 +227,5 @@ batchsize = bs
 learning_step = lr
 members = [fit_model(train_X, train_Y,i,N_epochs,batchsize,learning_step) for i in range(n_members)]
 
+
+print('Training process is complete and models have been stored')

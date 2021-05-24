@@ -52,7 +52,7 @@ if os.path.isfile('real_data_element.npy'):
 else:
     index = 0
     
-real_data = np.loadtxt('../{}'.format(pathtorealsamples)+'/multi_randomdata{}.txt'.format(ref_filename))[index]
+real_data = np.loadtxt('../{}'.format(pathtorealsamples)+'/multi_randomdata{}.txt'.format(ref_filename))
 
 redshifts = real_data[:100]
 distances = real_data[100:200]

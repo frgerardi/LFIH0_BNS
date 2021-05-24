@@ -127,7 +127,6 @@ n_summ = theta_fiducial.shape[0]
 
 files = [int(float(file[-9])) for file in glob.glob('{}/*_err.npy'.format(NN_dir))]
 n_members = np.max(files)
-print(n_members)
 
 if n_members > 1:
     
@@ -270,7 +269,7 @@ if os.path.isfile('real_data_element.npy'):
 else:
     index = 0
     
-real_data = np.loadtxt('../{}'.format(pathtorealsamples)+'/multi_randomdata{}.txt'.format(ref_filename))[index]
+real_data = np.loadtxt('../{}'.format(pathtorealsamples)+'/multi_randomdata{}.txt'.format(ref_filename))
 real_data = normalization_function(real_data, include_theta = False)
 compressed_data = compressor(real_data,None)
 
@@ -397,9 +396,9 @@ posterior_samples, posterior_weights, log_posterior_values = DelfiEnsemble.emcee
 np.savetxt('{}/final_posterior.txt'.format(directory_results),posterior_samples)
 np.savetxt('{}/posterior_weights.txt'.format(directory_results),posterior_weights)
 
-DelfiEnsemble.triangle_plot(samples=[posterior_samples], weights=[posterior_weights],\
-                            savefig = True, 
-                            filename = '{}/final_posterior'.format(directory_results))
+#DelfiEnsemble.triangle_plot(samples=[posterior_samples], weights=[posterior_weights],\
+#                            savefig = True, 
+#                            filename = '{}/final_posterior'.format(directory_results))
 
 
 
@@ -411,7 +410,7 @@ colors = [cm(x) for x in np.linspace(0.01, 0.99, 7)]
 names = ["H_0","q_0"]
 labels = ["H_0","q_0"]
 
-stan_samples = np.load('{}/'.format(pathtoSTANresults)+'multirnd_STAN_samples.npy')[index]
+stan_samples = np.load('{}/'.format(pathtoSTANresults)+'multirnd_STAN_samples.npy')
 
 samples_pydelfi = MCSamples(samples=[posterior_samples], names = names, labels = labels,\
                     label='pydelfi samples' +  ' [$H_0$,$q_0$] = [%s ' %round(np.mean(posterior_samples[:,0]),2) + 
