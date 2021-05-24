@@ -14,3 +14,7 @@ The whole set of parameters and settings are inside 'set_params.py'. The structu
 4) Training of the regression neural network used for compression (ensemble of neural networks)
 5) -- optional -- performing STAN analysis, to later compare pydelfi to standard bayesian inference
 6) Run pydelfi, the structure of this procedure is inside 'modules/LFI.py'
+
+### References 
+
+This work is based on pydelfi, which can be originally found at . 
