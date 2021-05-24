@@ -17,4 +17,4 @@ The whole set of parameters and settings are inside 'set_params.py'. The structu
 
 ### References 
 
-This work is based on pydelfi, which can be originally found at https://github.com/justinalsing/pydelfi. 
+This work is based on pydelfi <a href="https://arxiv.org/abs/1903.00007"> Alsing, Charnock, Feeney and Wandelt 2019</a>, the original code and tutorials can be found at https://github.com/justinalsing/pydelfi. 
