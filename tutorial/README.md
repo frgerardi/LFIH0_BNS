@@ -11,4 +11,6 @@ The whole set of parameters and settings are inside 'set_params.py'. The structu
 1) Simulating a set of mock real observations (the number of sources is currently set to a hundred and selection effects are applied to the distribution of the sources).
 2) Generating the set of training and validation sets for training the regression NN used to compress the data down to a set of summary statistics, which dimension is equal to the number of cosmological parameters of interest $\theta$.
 3) Generating the set of training data which will be later compressed down and used by pydelfi to learn the conditional $p(t|\theta)$, given $t$ to be the corresponding summary statistics.
-4) Training of the regression neural network used for compression
+4) Training of the regression neural network used for compression (ensemble of neural networks)
+5) -- optional -- performing STAN analysis, to later compare pydelfi to standard bayesian inference
+6) Run pydelfi, the structure of this procedure is inside 'modules/LFI.py'
